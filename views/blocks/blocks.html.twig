@@ -1,0 +1,28 @@
+{#
+ # Blocks
+ #
+ # @package WordPress
+ # @subpackage WordPressTheme
+ # @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
+ #}
+
+{% if blocks %}
+	<div class="{{ html_classes( classes | default( [] ) | join( ' ' ) ) | trim }}">
+		{% block prepend %}{% endblock %}
+		{% block body %}
+			{% for block in blocks %}
+				{{-
+					include(
+						"blocks/#{ block.acf_fc_layout | lower | replace( { '_' : '-' } ) }.html.twig",
+						{
+							props: block,
+							index: loop.index,
+							classes: [ loop.first ? 'is-first' : '', loop.last ? 'is-last' : '' ],
+						},
+						ignore_missing = true
+					)
+				-}}
+			{% endfor %}
+		{% endblock %}
+	</div>
+{% endif %}

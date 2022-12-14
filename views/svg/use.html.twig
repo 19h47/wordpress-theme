@@ -1,0 +1,21 @@
+{#
+ # Use
+ #
+ # @param array classes
+ # @param string id
+ # @param string icon
+ #
+ # @file views/svg/use.html.twig
+ # @package WordPress
+ # @subpackage CreatorFund
+ #
+ # @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
+ #}
+<svg
+	class="{{ html_classes( icon, classes | default( [] ) | join( ' ' ), 'fill-current' ) }}"
+	{{ id is defined ? "id=\"#{ id }\"" }}
+	aria-label="{{ description | default( site.description ) }}"
+	{{ attributes ? attributes | map( ( value, key ) => "#{key}=\"#{value}\"" ) | join( ' ' )  | raw }}
+>
+	<use xlink:href="#{{ icon }}" href="#{{ icon }}"></use>
+</svg>

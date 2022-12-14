@@ -1,0 +1,73 @@
+{
+	"require": {
+		"timber/timber": "2.0.0-beta.1",
+		"19h47/wp-form-controls": "dev-master",
+		"19h47/wp-sanitize-title-with-underscores": "dev-master",
+		"19h47/wp-get-theme": "dev-master",
+		"twig/html-extra": "^3.3",
+		"twig/intl-extra": "^3.4"
+	},
+	"name": "19h47/wordpress-theme",
+	"description": "WordPress Theme",
+	"type": "wordpress-theme",
+	"authors": [
+		{
+			"name": "Jérémy Levron",
+			"email": "jeremylevron@19h47.fr"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"WordPressTheme\\": "./includes"
+		},
+		"files": [
+			"./includes/helpers.php",
+			"./vendor/19h47/wp-form-controls/wp-form-controls.php",
+			"./vendor/19h47/wp-sanitize-title-with-underscores/wp-sanitize-title-with-underscores.php",
+			"./vendor/19h47/wp-get-theme/wp-get-theme.php"
+		]
+	},
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "19h47/wp-form-controls",
+				"version": "master",
+				"source": {
+					"url": "https://gist.github.com/5bc7dc96204d7290ce781a54756e0a7b.git",
+					"type": "git",
+					"reference": "master"
+				}
+			}
+		},
+		{
+			"type": "package",
+			"package": {
+				"name": "19h47/wp-sanitize-title-with-underscores",
+				"version": "master",
+				"source": {
+					"url": "https://gist.github.com/cde74dede05ad9ea9b9e4904d8ef19c2.git",
+					"type": "git",
+					"reference": "main"
+				}
+			}
+		},
+		{
+			"type": "package",
+			"package": {
+				"name": "19h47/wp-get-theme",
+				"version": "master",
+				"source": {
+					"url": "https://gist.github.com/806c10bd977aa63929dd14e2035e9d28.git",
+					"type": "git",
+					"reference": "main"
+				}
+			}
+		}
+	],
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	}
+}

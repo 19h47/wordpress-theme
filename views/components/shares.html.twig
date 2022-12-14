@@ -1,0 +1,23 @@
+{#
+ # Shares
+ #
+ # @package WordPress
+ # @subpackage WordPressTheme
+ #
+ # @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
+ #}
+
+{% if shares is iterable %}
+	<ul class="{{ html_classes( classes | default( [] ) | join( ' ' ) ) }}">
+		{% for share in shares %}
+			<li>
+				<a
+					class="{{ html_classes() }}"
+					href="{{ share.link }}{{ current_url }}" target="_blank" rel="noopener noreferer"
+				>
+					{{- icon( share.slug ) -}}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}

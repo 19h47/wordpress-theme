@@ -1,0 +1,60 @@
+{#
+ # Index
+ #
+ # @package WordPress
+ # @subpackage WordPressTheme
+ # @author Jérémy Levron <jeremylevron@19h47.fr> (https://19h47.fr)
+ #}
+<!DOCTYPE html>
+<html
+    itemscope
+    itemtype="http://schema.org/WebPage"
+    {{ html_class( 'no-js no-touch is-ontop is-loading' ) }}
+    {{ site.language_attributes }}
+>
+
+	<head>
+
+		<meta charset="{{ site.charset }}">
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover">
+		<meta name="format-detection" content="telephone=no">
+
+		{{ function( 'wp_head' ) }}
+
+	</head>
+
+	<body
+		data-module-load="main"
+		class="cursor-wait"
+	>
+
+		<div data-load-container data-url="{{ current_url }}" class="duration-1000 ease-in-out transition-opacity">
+			<div id="{{ post.id ? "page-#{post.id}" : 'page' }}" {{ body_class( 'page-content' ) }} data-module-scroll="main">
+
+				{% block header %}
+					{{- include( 'header.html.twig', { classes: [] } ) -}}
+				{% endblock %}
+
+				<main>
+					{% block content %}
+						Index
+					{% endblock %}
+				</main>
+
+				{% block footer %}
+					{{- include( 'footer.html.twig' ) -}}
+				{% endblock %}
+
+			</div>
+		</div>
+
+
+		{{ function( 'wp_footer' ) }}
+
+		<div id="svg-sprite" style="display: none;">{{- include( 'icons.svg', ignore_missing = true ) -}}</div>
+
+	</body>
+
+</html>
